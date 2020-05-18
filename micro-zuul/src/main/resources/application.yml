@@ -1,0 +1,30 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: app-zuul
+  main:
+    allow-bean-definition-overriding: true 
+
+eureka:
+  client:
+    service-url:
+           defaultZone: http://127.0.0.1:9100/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+      prefer-ip-address: true #将自己的ip地址注册到Eureka服务中
+      ip-address: 127.0.0.1
+      instance-id: ${spring.application.name}###${server.port} #指定实例id
+zuul:
+  routes: 
+    seller-service: 
+      path: /seller-service/** 
+      #url: http://127.0.0.1:8081 
+      service-id: app-seller
+    buyer-service: 
+      path: /buyer-service/** 
+      service-id: app-buyer
+    user-service: 
+      path: /user-service/** 
+      service-id: app-user

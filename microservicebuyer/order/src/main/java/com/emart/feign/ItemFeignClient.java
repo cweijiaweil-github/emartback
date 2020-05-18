@@ -1,14 +1,17 @@
 package com.emart.feign;
 
+import java.util.List;
+
+import com.emart.fallback.ItemServiceFallback;
 import com.emart.order.entity.Item;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-@FeignClient(value = "app-item")
+@FeignClient(value = "app-seller",fallback = ItemServiceFallback.class)
 public interface ItemFeignClient {
     
-    @GetMapping(value = "/search/{item_name}")
-    public Item searchItems(@PathVariable("item_name") String item_name);
+    @GetMapping(value = "/item/searchItems/{item_name}")
+    public List<Item> searchItems(@PathVariable("item_name") String item_name);
 }

@@ -20,10 +20,11 @@ public class ItemService {
     private ItemFeignClient itemFeignClient;
 
     public List<Item> searchItems(String item_name) {
-        String itemUrl = "http://APP-SELLER/item/searchItems/{item_name}";
-        Item[] model =  this.restTemplate.getForObject(itemUrl, Item[].class, item_name);
-        return Arrays.asList(model);
-        // return this.itemFeignClient.searchItems(item_name);
+        // String itemUrl = "http://APP-SELLER/item/searchItems/{item_name}";
+        // Item[] model =  this.restTemplate.getForObject(itemUrl, Item[].class, item_name);
+        // return Arrays.asList(model);
+        List<Item> listItem =  this.itemFeignClient.searchItems(item_name);
+        return listItem;
     }
 
     public List<Item> fillerItems(Double priceStart, Double priceEnd) {
