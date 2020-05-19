@@ -1,6 +1,5 @@
 server:
-  port: 8001
-
+  port: 8077
 spring:
   application:
     name: app-config-server
@@ -10,10 +9,9 @@ spring:
         git:
           uri: https://github.com/cweijiaweil-github/emartspringcloudconfig
           searchPaths: data
-
-# eureka:
-#   client:
-#     service-url:
-#            defaultZone: http://127.0.0.1:9100/eureka
-#     register-with-eureka: true
-#     fetch-registry: true
+eureka:
+  client:
+    service-url:
+           defaultZone: http://127.0.0.1:9100/eureka
+    register-with-eureka: true
+    fetch-registry: true
