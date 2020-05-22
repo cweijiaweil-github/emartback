@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    config:
+      label: master
+      name: microservice
+      profile: sellerdb
+      uri: http://localhost:8077
+  main:
+    allow-bean-definition-overriding: true 

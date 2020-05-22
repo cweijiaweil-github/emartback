@@ -2,6 +2,7 @@ package com.emart.item.controller;
 
 import com.emart.category.entity.Category;
 import com.emart.category.service.CategoryService;
+import com.emart.config.JdbcConfigBean;
 import com.emart.item.entity.Item;
 import com.emart.item.service.ItemService;
 import com.emart.subCategory.entity.SubCategory;
@@ -30,6 +31,9 @@ public class ItemController {
 
     @Autowired
     CategoryService categoryService;
+
+    @Autowired
+    private JdbcConfigBean jdbcConfigBean;
 
     @PostMapping(value = "/addItem")
     public Item addItems(@RequestBody Item item) {
@@ -76,5 +80,9 @@ public class ItemController {
     }
 
 
+    @GetMapping(value = "test")
+    public String testconfig(){
+        return this.jdbcConfigBean.toString();
+    }
 
 }

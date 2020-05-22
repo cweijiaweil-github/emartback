@@ -7,8 +7,10 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/cweijiaweil-github/emartspringcloudconfig
-          searchPaths: data
+          uri: https://github.com/cweijiaweil-github/emartspringcloudconfig.git
+          search-paths:
+          - emartspringcloudconfig
+      label: master	
 eureka:
   client:
     service-url:
