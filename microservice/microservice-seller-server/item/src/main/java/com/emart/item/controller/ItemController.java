@@ -37,6 +37,7 @@ public class ItemController {
 
     @PostMapping(value = "/addItem")
     public Item addItems(@RequestBody Item item) {
+        System.out.println("dddddddddd"+item);
         return this.itemService.saveItem(item);
     }
     
@@ -59,7 +60,8 @@ public class ItemController {
     public Map<String, List<Map<String,Object>>> deleteItems(@PathVariable("item_id") String item_id) {
         int flg = this.itemService.deleteItems(item_id);
         if(flg > 0){
-            return this.viewStock();
+            // return this.viewStock();
+            return null;
         }else{
             return null;
         }
@@ -68,12 +70,13 @@ public class ItemController {
     @PostMapping(value = "/updateItem")
     public Map<String, List<Map<String,Object>>> updateItemStock(@RequestBody Item item) {
         this.itemService.updateItemStock(item);
-        return this.viewStock();
+        // return this.viewStock();
+        return null;
     }
     
-    @GetMapping(value = "/listItems")
-    public Map<String, List<Map<String,Object>>> viewStock() {
-        List<Map<String,Object>> list = this.itemService.findItemList();
+    @GetMapping(value = "/listItems/{sellerId}")
+    public Map<String, List<Map<String,Object>>> viewStock(@PathVariable("sellerId") String sellerId) {
+        List<Map<String,Object>> list = this.itemService.findItemList(sellerId);
         Map<String, List<Map<String,Object>>> map = new HashMap<>();
         map.put("key", list);
         return map;

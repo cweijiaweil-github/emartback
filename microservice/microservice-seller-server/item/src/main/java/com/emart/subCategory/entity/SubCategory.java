@@ -58,7 +58,7 @@ public class SubCategory implements Serializable {
     @Column(name = "memory_Storage")
     private String memory_Storage;
 
-    @Column(name = "net_type")
+    @Column(name = "nettwork_type")
     private String nettwork_type;
 
     @Column(name = "cameras")

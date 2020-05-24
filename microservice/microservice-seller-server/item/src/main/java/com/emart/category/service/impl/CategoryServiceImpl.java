@@ -27,9 +27,9 @@ public class CategoryServiceImpl implements CategoryService {
     }
     
     @Override
-    public List<Category> findAllCategory(){
+    public List<Category> findAllCategory(String sellerId){
         try {
-            return this.categoryDao.findAll();
+            return this.categoryDao.findAllBySellerId(sellerId);
         } catch (Exception e) {
             return null;
         }

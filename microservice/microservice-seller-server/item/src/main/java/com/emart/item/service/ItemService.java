@@ -12,7 +12,7 @@ public interface ItemService {
 	
     public Item saveItem(Item item);
 
-    public List<Map<String,Object>> findItemList();
+    public List<Map<String,Object>> findItemList(String sellerId);
 
     public int deleteItems(String item_id);
 

@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 
 import com.emart.category.service.CategoryService;
-import com.emart.category.entity.Category;
 import com.emart.subCategory.entity.SubCategory;
 import com.emart.subCategory.service.SubCategoryService;
 
@@ -34,9 +33,9 @@ public class SubCategoryController {
     }
 
 
-    @PostMapping(value = "/findsubcategorys/{category_id}")
-    public Map<String, List<SubCategory>> findAllCategory(@PathVariable("category_id") String category_id) {
-        List<SubCategory> subCategoryList = this.subCategoryService.findByCategory_id(category_id);
+    @GetMapping(value = "/findsubcategorys/{sellerId}/{categoryId}")
+    public Map<String, List<SubCategory>> findAllCategory(@PathVariable("sellerId") String sellerId,@PathVariable("categoryId") String categoryId) {
+        List<SubCategory> subCategoryList = this.subCategoryService.findByCategory_id(sellerId,categoryId);
         Map<String, List<SubCategory>> map = new HashMap<>();
         if (subCategoryList.size() > 0) {
             map.put("key", subCategoryList);

@@ -8,7 +8,9 @@ import com.emart.category.entity.Category;
 import com.emart.category.service.CategoryService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,9 +29,9 @@ public class CategoryController {
         return this.categoryService.saveCategory(category);
     }
 
-    @GetMapping(value = "/findcategorys")
-    public Map<String, List<Category>> findAllCategory() {
-        List<Category> categoryList = this.categoryService.findAllCategory();
+    @GetMapping(value = "/findcategorys/{sellerId}")
+    public Map<String, List<Category>> findAllCategory(@PathVariable("sellerId") String sellerId) {
+        List<Category> categoryList = this.categoryService.findAllCategory(sellerId);
         Map<String, List<Category>> map = new HashMap<>();
         if (categoryList.size() > 0) {
             map.put("key", categoryList);

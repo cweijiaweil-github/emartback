@@ -26,8 +26,8 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public List<Map<String,Object>> findItemList() {
-        return this.itemDao.findItemList();
+    public List<Map<String,Object>> findItemList(String sellerId) {
+        return this.itemDao.findItemList(sellerId);
     }
 
     @Override

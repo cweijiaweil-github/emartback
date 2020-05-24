@@ -1,20 +1,15 @@
 package com.emart.category.entity;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
-import com.emart.subCategory.entity.SubCategory;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -32,8 +27,6 @@ public class Category implements Serializable {
      *
      */
     private static final long serialVersionUID = 1L;
-
-    private SubCategory subCategory = new SubCategory();
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

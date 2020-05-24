@@ -51,12 +51,12 @@ public class UserController {
         int buyerCount = this.userService.findBuyer(user.getEmail(),user.getPassword());        
         Map<String,String> map = new HashMap<>();
         if  (buyerCount > 0){
-            map.put("key", "/home/buyer");
+            map.put("key", "buyer"+","+user.getEmail()+","+"/home/buyer");
               return map;
         }
         int sellerCount = this.userService.findSeller(user.getEmail(),user.getPassword());
         if  (sellerCount > 0){
-            map.put("key", "/home/seller");
+            map.put("key", "seller"+","+user.getEmail()+","+"/home/seller");
               return map;
         }
 

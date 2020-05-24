@@ -15,7 +15,7 @@ import org.springframework.data.jpa.repository.Query;
 @Repository
 public interface SubCategoryDao extends JpaRepository<SubCategory, String> {
 
-List<SubCategory> findByCategoryId(String categoryId);
+List<SubCategory> findBySellerIdAndCategoryId(String sellerId,String categoryId);
 
 @Query(value = "select * from t_sub_category as t where t.sub_category_id = ?1", nativeQuery = true)
 List<SubCategory> findBySubCategoryId(String subCateoryId);

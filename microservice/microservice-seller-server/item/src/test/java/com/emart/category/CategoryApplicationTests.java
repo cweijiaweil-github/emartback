@@ -36,7 +36,8 @@ class CategoryApplicationTests {
 
 	@Test
 	void getFindAllCategory()  throws Exception {
-		Map<String, List<Category>> result = testRestTemplate.getForObject("/subCategory/findcategorys",Map.class);
+		String sellerId = "cweijiaweil@163.com";
+		Map<String, List<Category>> result = testRestTemplate.getForObject("/category/findcategorys",Map.class,sellerId);
 		System.out.println("xxxxxxxxxxxxx"+result);
 		List<Category> list1 = result.get("key");
 		JSONArray  json  =  JSONArray.fromObject(list1.get(0)); 
