@@ -15,8 +15,10 @@ import org.springframework.data.jpa.repository.Query;
 @Repository
 public interface ItemDao extends JpaRepository<Item, Integer>{
 
-    @Query(value = "select i.item_name,c.category_name,s.sub_category_id,s.sub_category_name from t_item as i,t_category as c,t_sub_category as s where i.category_id = c.category_id and i.category_id = s.category_id", nativeQuery = true)
-    public List<Map<String,Object>> findItemList(String sellerId);
+    @Transactional
+@Modifying
+    @Query(value = "select i.item_name,c.category_name,s.sub_category_id,s.sub_category_name from t_item as i,t_category as c,t_sub_category as s where i.category_id = c.category_id and i.category_id = s.category_id and i.seller_id = ?1", nativeQuery = true)
+    List<Map<String,Object>> findItemList(String sellerId);
     
     @Modifying
     @Transactional

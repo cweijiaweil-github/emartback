@@ -77,6 +77,7 @@ public class ItemController {
     @GetMapping(value = "/listItems/{sellerId}")
     public Map<String, List<Map<String,Object>>> viewStock(@PathVariable("sellerId") String sellerId) {
         List<Map<String,Object>> list = this.itemService.findItemList(sellerId);
+        System.out.println("xxxxxxxxxxxxxx"+list.get(0));
         Map<String, List<Map<String,Object>>> map = new HashMap<>();
         map.put("key", list);
         return map;
