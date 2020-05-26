@@ -26,7 +26,7 @@ public class CartApplicationTests {
 	void postSaveCart()  throws Exception {
         Cart cart = new Cart();
         cart.setCartId("cart0001");
-        cart.setBuyId("buyId0001");
+        cart.setBuyerId("buyId0001");
         cart.setNum_items(10);
         cart.setCategoryId("c1001");
         cart.setSubcategoryId("sc0001");

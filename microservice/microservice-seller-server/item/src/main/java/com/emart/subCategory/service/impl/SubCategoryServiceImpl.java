@@ -1,6 +1,7 @@
 package com.emart.subCategory.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import com.emart.subCategory.dao.SubCategoryDao;
 import com.emart.subCategory.entity.SubCategory;
@@ -36,7 +37,7 @@ public class SubCategoryServiceImpl implements SubCategoryService {
 
     
     @Override
-    public List<SubCategory> findSubCategoryList(String subCateory_id) {
+    public List<Map<String,Object>> findSubCategoryList(String subCateory_id) {
         try {
             return this.subCategoryDao.findBySubCategoryId(subCateory_id);
         } catch (Exception e) {

@@ -19,4 +19,6 @@ public interface CartDao extends JpaRepository<Cart, Integer>{
     public void deleteBatch(List<Long> ids);
     // public void deleteCartByIdIn(List<Integer> ids);
     
+    @Query(value="select * from t_cart as c where c.item_id = ?1",nativeQuery=true)
+    public Cart findByItemId(String itemId);
 }

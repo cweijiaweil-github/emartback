@@ -1,6 +1,7 @@
 package com.emart.feign;
 
 import java.util.List;
+import java.util.Map;
 
 import com.emart.fallback.ItemServiceFallback;
 import com.emart.order.entity.Item;
@@ -13,5 +14,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface ItemFeignClient {
     
     @GetMapping(value = "/item/searchItems/{item_name}")
-    public List<Item> searchItems(@PathVariable("item_name") String item_name);
+    public List<Map<String,Object>> searchItems(@PathVariable("item_name") String item_name);
 }

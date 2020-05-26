@@ -38,22 +38,22 @@ public class Cart  implements Serializable{
     private Long id;
     
     @NotNull
-    @Column(name = "buyId")
-    private String buyId;
+    @Column(name = "buyerId")
+    private String buyerId;
     
-    @NotNull
     @Column(name = "cartId")
     private String cartId;
     
     @NotNull
     @Column(name = "itemId")
     private String itemId;
+
+    @Column(name = "item_name")
+    private String item_name;
     
-    @NotNull
     @Column(name = "categoryId")
     private String categoryId;
 
-    @NotNull
     @Column(name = "subcategoryId")
     private String subcategoryId;
 

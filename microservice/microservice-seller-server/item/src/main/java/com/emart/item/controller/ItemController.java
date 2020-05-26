@@ -47,12 +47,12 @@ public class ItemController {
     }
     
     @GetMapping(value = "/searchItems/{item_name}")
-    public List<Item> searchItems(@PathVariable("item_name") String item_name) {
+    public List<Map<String,Object>> searchItems(@PathVariable("item_name") String item_name) {
         return this.itemService.findAllByItemName(item_name);
     }
 
     @GetMapping(value = "/fillerItems/{priceStart}/{priceEnd}")
-    public List<Item> fillerItems(@PathVariable("priceStart") Double priceStart,@PathVariable("priceEnd") Double priceEnd) {
+    public List<Map<String,Object>> fillerItems(@PathVariable("priceStart") Double priceStart,@PathVariable("priceEnd") Double priceEnd) {
         return this.itemService.findByPrices(priceStart,priceEnd);
     }
     

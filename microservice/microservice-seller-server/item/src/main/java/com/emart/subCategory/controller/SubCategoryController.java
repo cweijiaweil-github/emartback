@@ -44,11 +44,9 @@ public class SubCategoryController {
     }
     
     @GetMapping(value = "/subcategorylist/{sub_category_id}")
-    public Map<String, List<SubCategory>> findSubCategoryList(@PathVariable("sub_category_id") String sub_category_id) {
-        List<SubCategory> subCategory = this.subCategoryService.findSubCategoryList(sub_category_id);
-        Map<String, List<SubCategory>> map = new HashMap<>();
-        map.put("key", subCategory);
-        return map;
+    public List<Map<String,Object>> findSubCategoryList(@PathVariable("sub_category_id") String sub_category_id) {
+        List<Map<String,Object>> subCategoryList = this.subCategoryService.findSubCategoryList(sub_category_id);
+        return subCategoryList;
     }
 
 }

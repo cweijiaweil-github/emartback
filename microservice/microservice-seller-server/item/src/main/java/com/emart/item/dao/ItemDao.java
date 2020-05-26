@@ -25,10 +25,11 @@ public interface ItemDao extends JpaRepository<Item, Integer>{
     @Query(value = "delete from t_item as t where t.item_id = ?1", nativeQuery = true)
     public int deleteByItemId(String itemId);
 
-    @Query(value = "select * from t_item as t where t.item_name = ?1", nativeQuery = true)
-    public List<Item> findAllByItemName(String item_name);
-
-    public List<Item> findByPriceBetween(Double priceStart,Double priceEnd);
+    @Query(value = "select i.item_name,i.price,i.description,i.seller_id,c.category_name,c.category_id,s.sub_category_id,s.sub_category_name from t_item as i,t_category as c,t_sub_category as s where i.item_name like %?1% and i.category_id = c.category_id and i.subcategory_id = s.sub_category_id;", nativeQuery = true)
+    public List<Map<String,Object>> findAllByItemName(String item_name);
+    
+    @Query(value = "select i.item_name,i.price,i.description,i.seller_id,c.category_name,c.category_id,s.sub_category_id,s.sub_category_name from t_item as i,t_category as c,t_sub_category as s where i.price between ?1 and ?2 and i.category_id = c.category_id and i.subcategory_id = s.sub_category_id", nativeQuery = true)
+    public List<Map<String,Object>> findByPriceBetween(Double priceStart,Double priceEnd);
 
     public Item findByItemId(String itemId);
 

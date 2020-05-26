@@ -41,12 +41,12 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public List<Item> findAllByItemName(String item_name) {
+    public List<Map<String,Object>> findAllByItemName(String item_name) {
         return this.itemDao.findAllByItemName(item_name);
     }
 
     @Override
-    public List<Item> findByPrices(Double priceStart,Double priceEnd) {
+    public List<Map<String,Object>> findByPrices(Double priceStart,Double priceEnd) {
         return this.itemDao.findByPriceBetween(priceStart,priceEnd);
     }
     

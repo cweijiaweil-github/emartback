@@ -18,6 +18,10 @@ public class CartService {
         return this.cartDao.save(cart);
     }
 
+    public Cart getCartByItemId(String item_id){
+        return this.cartDao.findByItemId(item_id);
+    }
+
     public List<Cart> listCarts() {
         return this.cartDao.findAll();
     }

@@ -4,6 +4,6 @@ spring:
       label: master
       name: microservice
       profile: userdb
-      uri: http://localhost:8077
+      uri: http://127.0.0.1:8077
   main:
     allow-bean-definition-overriding: true 

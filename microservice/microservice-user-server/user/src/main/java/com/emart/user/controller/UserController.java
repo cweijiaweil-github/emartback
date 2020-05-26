@@ -52,14 +52,13 @@ public class UserController {
         Map<String,String> map = new HashMap<>();
         if  (buyerCount > 0){
             map.put("key", "buyer"+","+user.getEmail()+","+"/home/buyer");
-              return map;
+            return map;
         }
         int sellerCount = this.userService.findSeller(user.getEmail(),user.getPassword());
         if  (sellerCount > 0){
             map.put("key", "seller"+","+user.getEmail()+","+"/home/seller");
               return map;
         }
-
         map.put("key", "/error");
         return map;
     }

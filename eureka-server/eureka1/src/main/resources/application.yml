@@ -15,6 +15,6 @@ eureka:
     hostname: 127.0.0.1
   client:
     serviceUrl:
-      defaultZone: http://localhost:9100/eureka/
+      defaultZone: http://127.0.0.1:9100/eureka/
     register-with-eureka: true
     fetch-registry: true
